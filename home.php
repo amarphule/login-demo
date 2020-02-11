@@ -1,19 +1,10 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <title>Login Demo</title>
-</head>
-
+<?php
+    session_start();
+    if (!isset($_SESSION["user_name"])) {
+        header("location: index.php");
+    }
+    include "header.php"; 
+?>
 <body class="bg-light">
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -21,10 +12,13 @@
             <div class="navbar-collapse" id="navbarNavAltMarkup">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-item nav-link active" href="index.html">Home</a>
+                        <a class="nav-item nav-link active" href="home.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item nav-link" href="login.html">Login</a>
+                        <a class="nav-item nav-link" href="index.php">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="logout.php">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -51,13 +45,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Optional JavaScript -->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.4.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-</body>
-
-</html>
+<?php
+    include "footer.php"; 
+?>
