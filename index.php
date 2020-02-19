@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include "dbConn.php";
 
   // Check User already available. 
@@ -10,8 +11,10 @@
   }
   if (isset($_POST["submit"])) {
     $uname = $_POST["uname"];
-    $pass = md5($_POST["pass"]);
+    $pass = $_POST["pass"];
     $rememberme = $_POST["rememberme"];
+    $_SESSION["user_name"] = $uname;
+
   
     //  Empty fields validaiton
     if (!empty($uname) && !empty($pass)) {
@@ -28,8 +31,6 @@
         if (!empty($rememberme)) {
           setcookie("uname", $uname, time() + 12 * 60 * 60);
           setcookie("pass", $pass, time() + 12 * 60 * 60);
-          session_start();
-          $_SESSION["user_name"] = $uname;
         }
         else {
           if (isset($_COOKIE["uname"])) {

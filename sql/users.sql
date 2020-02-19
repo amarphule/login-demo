@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 11, 2020 at 09:29 AM
+-- Generation Time: Feb 19, 2020 at 12:32 PM
 -- Server version: 8.0.19-0ubuntu0.19.10.3
 -- PHP Version: 7.3.11-1+ubuntu19.04.1+deb.sury.org+1
 
@@ -37,7 +37,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `uname`, `pass`) VALUES
-(3, 'admin', '21232f297a57a5a743894a0e4a801fc3');
+(4, 'user', 'user'),
+(5, 'admin', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -57,7 +58,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
