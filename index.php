@@ -13,18 +13,20 @@
     $uname = $_POST["uname"];
     $pass = $_POST["pass"];
     $rememberme = $_POST["rememberme"];
-    $_SESSION["user_name"] = $uname;
 
   
     //  Empty fields validaiton
     if (!empty($uname) && !empty($pass)) {
+      $_SESSION["user_name"] = $uname;
   
       // Get data from database
       $sql = "SELECT * FROM users WHERE uname = '". $uname ."' AND pass = '". $pass ."'";
-
+ 
+      // connection and query
       $result = mysqli_query($conn, $sql);
+
       $user = mysqli_fetch_array($result);
-  
+      
       if ($user) {
 
         // check if true Setcookies
@@ -34,7 +36,7 @@
         }
         else {
           if (isset($_COOKIE["uname"])) {
-            setcookie("uname", "");
+            setcookie("uname", ""); //unset
           }
           if (isset($_COOKIE["pass"])) {
             setcookie("pass", "");
@@ -58,8 +60,8 @@
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a class="navbar-brand" href="home.php"><strong>Login Demo</strong></a>
     </nav>
-    <div class="container p-5 bg-light">
-      <div class="text-center text-danger">
+    <div class="container p-5 bg-secondary">
+      <div class="text-center text-warning">
         <!-- Error message -->
         <?php
           if (isset($message)){
